@@ -17,7 +17,7 @@ def test_welcome(client):
 # Test de la route de prédiction avec une requête POST valide
 def test_predict_credit_valid(client):
 
-    id_accept = 12478245564
+    id_accept = 124782
 
     response = client.get(f"/api/predict/{id_accept}")
     assert response.status_code == 200
