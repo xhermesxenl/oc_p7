@@ -7,8 +7,9 @@ pytest==7.4.2
 requests==2.25.1
 Pillow==8.1.0
 scikit_learn>=0.24.1
+ipython==8.12.3
 lightgbm==3.2.1
-shap>=0.39
+shap==0.42.1
 Flask==2.3.3
 uvicorn==0.23.2
 validators==0.22.0
