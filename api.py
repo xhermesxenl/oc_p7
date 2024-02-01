@@ -8,8 +8,10 @@ from shap.maskers import Independent
 shap.initjs()
 
 # Exemple
-# http://127.0.0.1:5000/credit/124782/predict
-# http://127.0.0.1:5000/credit/58369/predict
+# http://127.0.0.1:5000/api/predict/124782
+# http://127.0.0.1:5000/api/predict/58369
+# https://www.younup.fr/blog/heroku-pour-deployer-votre-application-python-flask-dans-le-cloud
+
 
 app = Flask(__name__)
 model_filename = "model.pkl"
@@ -48,7 +50,7 @@ def liste_identifiants():
         "liste_id": liste_id,
                 })
 
-@app.route("/api/<int:id_client>/data", methods=["GET"])
+@app.route("/api/data/<int:id_client>/", methods=["GET"])
 def donnees_client(id_client):
 
     if id_client in data_test["SK_ID_CURR"].tolist():
@@ -58,7 +60,7 @@ def donnees_client(id_client):
         return jsonify({"error": "Unknown ID"}), 404
     
 
-@app.route("/api/<int:id_client>/predict", methods=["GET"])
+@app.route("/api/predict/<int:id_client>", methods=["GET"])
 def predict_score_client(id_client):    
     
     if id_client in data_test["SK_ID_CURR"].tolist():
@@ -77,7 +79,7 @@ def predict_score_client(id_client):
     else:
         return jsonify({"error": "Unknown ID"}), 404
     
-@app.route("/api/<int:id_client>/shap", methods=["GET"])
+@app.route("/api/shap/<int:id_client>", methods=["GET"])
 def shap_values_client(id_client):
 
     if id_client in data_test["SK_ID_CURR"].tolist():
