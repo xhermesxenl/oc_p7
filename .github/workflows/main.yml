@@ -22,7 +22,11 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Deploy to Heroku
-        run: |
-          heroku login -i
-          heroku git:remote -a your-heroku-app-name
-          git push heroku main
+          env:
+            HEROKU_API_KEY: ${{ HEROKU_API_KEY }}
+            HEROKU_APP_NAME: ${{ HEROKU_APP_NAME }}
+            HEROKU_EMAIL: ${{ HEROKU_EMAIL }}
+            run: |
+              heroku login -i
+              heroku git:remote -a $HEROKU_APP_NAME
+              git push heroku main
