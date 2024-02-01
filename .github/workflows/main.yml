@@ -25,19 +25,15 @@ jobs:
           run: |
             pytest
   deploy:
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v2
 
-      - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-        run: |
-          heroku login -i
-          heroku git:remote -a $HEROKU_APP_NAME
-          git push heroku main
-          
+          - name: Deploy to Heroku
+          - uses: akhileshns/heroku-deploy@v3.13.15 # This is the action
+            with:
+              heroku_api_key: ${{HEROKU_API_KEY}}
+              heroku_app_name:  ${{ HEROKU_APP_NAME }}
+              heroku_email: ${{ HEROKU_EMAIL }}
