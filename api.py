@@ -76,7 +76,8 @@ def predict_score_client(id_client):
         return jsonify({"probability": proba_0, "classe": classe})
     else:
         return jsonify({"error": "Unknown ID"}), 404
-    
+
+
 @app.route("/api/shap/<int:id_client>", methods=["GET"])
 def shap_values_client(id_client):
 
@@ -89,6 +90,6 @@ def shap_values_client(id_client):
     else:
         return jsonify({"error": "Unknown ID"}), 404
 
-if __name__ == "__main__":
-    app.run(debug=True)
 
+if __name__ == "__main__":
+  app.run(debug=True)
