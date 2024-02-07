@@ -17,9 +17,9 @@ def test_welcome(client):
 # Test de la route de prédiction avec une requête POST valide
 def test_predict_credit_valid(client):
 
-    id_accept = 124782
+    id_accept = 144194
 
-    response = client.get(f"/credit/{id_accept}/predict")
+    response = client.get(f"/api/predict/{id_accept}")
     assert response.status_code == 200
     assert "probability" in response.json
     assert "classe" in response.json
@@ -29,8 +29,8 @@ def test_predict_credit_valid(client):
 # Test de la route de prédiction avec une requête POST invalide
 def test_predict_credit_invalid(client):
 
-    id_refuse = 58369
-    response = client.get(f"/credit/{id_refuse}/predict")
+    id_refuse = 13112
+    response = client.get(f"/api/predict/{id_refuse}")
     assert response.status_code == 200
     assert "probability" in response.json
     assert "classe" in response.json
@@ -40,10 +40,9 @@ def test_predict_credit_invalid(client):
 # Test de la route de prédiction avec une requête POST invalide
 def test_predict_credit_unknown(client):
 
-    id_unknow = 99999999999
+    id_unknow = 999999
+    response = client.get(f"/api/predict/{id_unknow}")
 
-    response = client.get(f"/credit/{id_unknow}/predict")
-    
     assert response.status_code == 404
     assert "error" in response.json
     assert response.json["error"] == "Unknown ID"
