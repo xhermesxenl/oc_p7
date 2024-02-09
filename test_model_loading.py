@@ -2,7 +2,7 @@ import os
 import pickle
 import pytest
 
-from api import model_path  # Assurez-vous que ce chemin est correct
+from api import model_path
 
 model_filename = "model.pkl"
 model_path = os.path.join(os.getcwd(), model_filename) 
