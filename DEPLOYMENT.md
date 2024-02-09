@@ -53,6 +53,7 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
+```
 
 ## Vérification du Déploiement
 
@@ -73,3 +74,4 @@ Pour mettre à jour votre application sur Heroku après des modifications :
 1. Appliquez vos modifications dans le code de votre application.
 2. Committez et pushez ces modifications sur la branche `main` de votre dépôt GitHub.
 3. Le workflow GitHub Actions configuré se déclenchera automatiquement, procédant au build et au déploiement des mises à jour sur Heroku.
+
