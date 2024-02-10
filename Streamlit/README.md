@@ -27,9 +27,6 @@ Visualiser les résultats et les métriques clés du modèle.
 - Visualisation des prédictions de scoring et des métriques associées.
 - Possibilité de tester différents scénarios clients.
 
-## Auteurs
- - xhermesxenl
-
 ## Licence
 [MIT](https://choosealicense.com/licenses/mit/)
 

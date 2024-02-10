@@ -12,13 +12,11 @@ Le projet suit une approche MLOps pour l'entraînement, le suivi, et le déploie
 
 ### Découpage des Dossiers
 
-
 - `/`: Code source pour l'entraînement du modèle, le déploiement de l'API, et les tests unitaires.
 - `Data/`: Contient les jeux de données utilisés pour l'entraînement et le test du modèle.
 - `MLFlow/`: Inclut le modèle entraîné, gérés par MLFlow.
 - `Notebooks/`: Notebooks Jupyter pour l'analyse exploratoire, la préparation des données, le feature engineering et la modélisation.
 - `Streamlit/`: Code source pour le tableau de bord Streamlit.
-
 
 ## Installation
 
@@ -41,8 +39,7 @@ Les instructions pour le déploiement de l'API sur une plateforme cloud (Heroku)
 Un fichier `requirements.txt` est inclus, listant toutes les bibliothèques Python nécessaires pour exécuter l'API.
 
 ## Licence
-
-Ce projet est sous licence MIT - voir le fichier [LICENSE.md](LICENSE.md) pour plus de détails.
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Contributions
 
