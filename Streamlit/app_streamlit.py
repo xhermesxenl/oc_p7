@@ -3,7 +3,7 @@ import requests
 import matplotlib.pyplot as plt
 import plotly.express as px
 
-# Définissez le titre de l'application
+# Titre de l'application
 st.image("../logo.png", caption='logo', use_column_width=True)
 st.title("Prédiction du Risque de Non-Remboursement")
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -14,10 +14,10 @@ couleur_accepte = "#3B782F"
 couleur_refuse  = "#B82010"
 
 
-# Créez une entrée de texte pour saisir l'ID du client
+# Créer une entrée de texte pour saisir l'ID du client
 client_id = st.text_input("Entrez l'ID du client (ex: 144194, 58369):")
 
-# Créez un bouton pour interroger l'API
+# Créer un bouton pour interroger l'API
 if st.button("Obtenir la prédiction"):
     if client_id:
         # Requête à l'API Flask
@@ -49,10 +49,6 @@ if st.button("Obtenir la prédiction"):
             with col2:
                 for key, value in prediction_details.items():
                     st.write(f"{key} : {value}")
-
-
-
-
 
             # Données pour le graphique
             categories = ['Accepté', 'Refusé']
@@ -86,19 +82,6 @@ if st.button("Obtenir la prédiction"):
 
             # Affichage du graphique dans Streamlit
             st.pyplot(fig)
-
-
-
-
-
-
-
-
-            #
-            # plt.pie([data['probability'], 100 - data['probability']], labels=labels, colors=colors, autopct='%1.1f%%')
-            # plt.legend(labels)
-            # st.pyplot(plt)
-
 
         elif response.status_code == 404:
             st.write("ID inconnu.")

@@ -17,8 +17,6 @@ data_test = pd.read_csv("test_api.csv")
 
 model_path = os.path.join(os.getcwd(), model_filename)
 
-print(model_path)
-
 # Charger le modèle depuis un fichier
 with open(model_path, "rb") as model_file:
     model = pickle.load(model_file)
@@ -30,10 +28,6 @@ explainer = shap.TreeExplainer(lgbm_model)
 @app.route('/')
 def welcome():
     return "Bienvenue dans l'API de prédiction de crédit !"
-
-@app.route('/html')
-def home():
-   return render_template("index.html")
 
 @app.route("/api", methods=["GET"])
 def liste_identifiants():    

@@ -12,8 +12,9 @@ Le projet suit une approche MLOps pour l'entraînement, le suivi, et le déploie
 
 ### Découpage des Dossiers
 
-- `/`: Code source pour l'entraînement du modèle, le déploiement de l'API, et les tests unitaires.
+- `/`: Code source pour l'entraînement du modèle, le déploiement de l'API, les tests unitaires, liste des packages.
 - `Data/`: Contient les jeux de données utilisés pour l'entraînement et le test du modèle.
+- `DataDrift/`: Contient le rapport data drift avec evidently.
 - `MLFlow/`: Inclut le modèle entraîné, gérés par MLFlow.
 - `Notebooks/`: Notebooks Jupyter pour l'analyse exploratoire, la préparation des données, le feature engineering et la modélisation.
 - `Streamlit/`: Code source pour le tableau de bord Streamlit.
