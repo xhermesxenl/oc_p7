@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 # Définissez le titre de l'application
+st.image("../logo.png", caption='logo', use_column_width=True)
 st.title("Interface Streamlit pour l'API de prédiction de crédit")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -14,7 +15,7 @@ couleur_refuse  = "#B82010"
 
 
 # Créez une entrée de texte pour saisir l'ID du client
-client_id = st.text_input("Entrez l'ID du client (ex: 58369):")
+client_id = st.text_input("Entrez l'ID du client (ex: 144194, 58369):")
 
 # Créez un bouton pour interroger l'API
 if st.button("Obtenir la prédiction"):
@@ -55,7 +56,8 @@ if st.button("Obtenir la prédiction"):
 
             # Données pour le graphique
             categories = ['Accepté', 'Refusé']
-            values = [67, 33]  # Probabilités calculées
+            probability = data['probability']
+            values = [probability, 100 - probability]  # Probabilités calculées
             colors = ['green', 'red']  # Couleurs pour chaque catégorie
             seuil_pourc = 0.48 * 100  # Convertir le seuil en pourcentage pour correspondre à l'échelle du graphique
 
