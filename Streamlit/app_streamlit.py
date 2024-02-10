@@ -57,7 +57,7 @@ if st.button("Obtenir la prédiction"):
             # Données pour le graphique
             categories = ['Accepté', 'Refusé']
             probability = data['probability']
-            values = [probability, 100 - probability]  # Probabilités calculées
+            values = [100 - probability, probability]  # Probabilités calculées
             colors = ['green', 'red']  # Couleurs pour chaque catégorie
             seuil_pourc = 0.48 * 100  # Convertir le seuil en pourcentage pour correspondre à l'échelle du graphique
 
