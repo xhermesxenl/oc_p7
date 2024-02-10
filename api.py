@@ -10,7 +10,6 @@ shap.initjs()
 # Exemple
 # http://127.0.0.1:5000/api/predict/124782
 # http://127.0.0.1:5000/api/predict/58369
-# https://www.younup.fr/blog/heroku-pour-deployer-votre-application-python-flask-dans-le-cloud
 
 app = Flask(__name__)
 model_filename = "model.pkl"
