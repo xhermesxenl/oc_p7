@@ -5,7 +5,7 @@ import plotly.express as px
 
 # Définissez le titre de l'application
 st.image("../logo.png", caption='logo', use_column_width=True)
-st.title("Interface Streamlit pour l'API de prédiction de crédit")
+st.title("Prédiction du Risque de Non-Remboursement")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Constante
@@ -38,7 +38,7 @@ if st.button("Obtenir la prédiction"):
             st.write(f'<p style="background-color:{color}; color:#ffffff; font-size:24px; border-radius:5px; padding:10px; text-align:center;">Le prêt est {message}</p>', unsafe_allow_html=True)
 
             prediction_details = {
-                "Probabilité": f"{data['probability']}%",
+                "Probabilité de Non-Remboursement": f"{data['probability']}%",
                 "Classe": data['classe']
             }
 

@@ -65,15 +65,18 @@ def predict_score_client(id_client):
         data_client = data_test.loc[data_test["SK_ID_CURR"] == id_client]
         data_client = data_client.drop(["Unnamed: 0", "SK_ID_CURR"], axis=1)
         proba = model.predict_proba(data_client)
-        proba_0 = round(proba[0][0] * 100)
+        print("Probabilités prédites :", proba)
+        print("Probabilités prédites 0 :", proba[0])
 
-        seuil_optimal = 0.51  
+        proba_1 = round(proba[0][1] * 100)
+
+        seuil_optimal = 0.48
         value_seuil_optimal =   seuil_optimal * 100
 
         # Classer le client comme "accepté" ou "refusé" en fonction du seuil
-        classe = "accepte" if proba_0 > value_seuil_optimal else "refuse"
+        classe = "refuse" if proba_1 > value_seuil_optimal else "accepte"
 
-        return jsonify({"probability": proba_0, "classe": classe})
+        return jsonify({ "probability": proba_1, "classe": classe})
     else:
         return jsonify({"error": "Unknown ID"}), 404
 
